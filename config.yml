@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build:
+    working_directory: ~/
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-yarn
+      - node/install-packages:
+          pkg-manager: yarn
+
+  test:
+    docker:
+      - image: cimg/node:current
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Test
+          command: echo "Tests are running"
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build

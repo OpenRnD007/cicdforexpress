@@ -1,0 +1,13 @@
+{
+  "name": "cicdforexpress",
+  "version": "1.0.0",
+  "description": "Ci Cd for expressjs",
+  "main": "index.js",
+  "repository": "https://github.com/OpenRnD007/cicdforexpress.git",
+  "author": "OpenRnd",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
+  }
+}
