@@ -5,11 +5,9 @@ orbs:
 
 jobs:
   build:
-    working_directory: ~/
     executor: node/default
     steps:
       - checkout
-      - node/install-yarn
       - node/install-packages:
           pkg-manager: yarn
 
@@ -17,8 +15,6 @@ jobs:
     docker:
       - image: cimg/node:current
     steps:
-      - attach_workspace:
-          at: .
       - run:
           name: Run Test
           command: echo "Tests are running"
